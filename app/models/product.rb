@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   @per_page = 7
   attr_writer :inline_forms_attribute_list
   has_paper_trail
+  has_many :farmers_products
+  has_many :farmers, through: :farmers_products
 
   def _presentation
     "#{name}"
@@ -11,7 +13,7 @@ class Product < ApplicationRecord
 
   def inline_forms_attribute_list
     @inline_forms_attribute_list ||= [
-      [ :name , "name", :text_field ], 
+      [ :name , "name", :text_field ],
     ]
   end
 

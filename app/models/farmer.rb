@@ -3,6 +3,8 @@ class Farmer < ApplicationRecord
   @per_page = 7
   attr_writer :inline_forms_attribute_list
   has_paper_trail
+  has_many :farmers_products
+  has_many :products, through: :farmers_products
 
   def _presentation
     "#{name}"
