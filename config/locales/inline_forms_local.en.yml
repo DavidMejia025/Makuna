@@ -1,0 +1,7 @@
+en:
+  inline_forms:
+    general:
+      application_title: Agro-hackacton
+    devise:
+      title_for_devise: Agro-hackacton
+      welcome: Welcome to Agro-hackacton!
