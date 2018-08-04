@@ -12,14 +12,12 @@ class Product < ApplicationRecord
   def inline_forms_attribute_list
     @inline_forms_attribute_list ||= [
       [ :name , "name", :text_field ], 
-      [ :type , "type", :text_field ], 
-#     [ :enabled , "enabled", :unknown ], 
     ]
   end
 
 
   def self.not_accessible_through_html?
-    true
+    false
   end
 
   def self.order_by_clause
