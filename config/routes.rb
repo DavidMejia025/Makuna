@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  resources :products do
+  post 'revert', :on => :member
+  get 'list_versions', :on => :member
+end
+
+  resources :producers do
+  post 'revert', :on => :member
+  get 'list_versions', :on => :member
+end
+
+  resources :farmers do
+  post 'revert', :on => :member
+  get 'list_versions', :on => :member
+end
+
   resources :inline_forms_translations do
   post 'revert', :on => :member
   get 'list_versions', :on => :member
