@@ -12,7 +12,7 @@ class Farmer < ApplicationRecord
   def inline_forms_attribute_list
     @inline_forms_attribute_list ||= [
       [ :name , "name", :text_field ],
-      [ :long , "lat", :text_field ],
+      [ :lat , "lat", :text_field ],
       [ :long , "long", :text_field ],
     ]
   end

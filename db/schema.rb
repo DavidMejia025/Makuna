@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180804201036) do
+ActiveRecord::Schema.define(version: 20180804204437) do
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180804201036) do
     t.float "long", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "lat", limit: 24
   end
 
   create_table "products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
