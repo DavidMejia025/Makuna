@@ -68,4 +68,24 @@ namespace :import do
 			Department.find_or_create_by(name: row['Nombre'])
   	end
 	end
+
+
+
+	task :load_product_images => :environment do
+		products = [
+			{'lulo': 'https://s3.amazonaws.com/makuna/Producto/Lulo.png'},
+			{'cacao': 'https://s3.amazonaws.com/makuna/Producto/cacao.png'},
+			{'cafe': 'https://s3.amazonaws.com/makuna/Producto/cafe.png'},
+			{'palma de aceite': 'https://s3.amazonaws.com/makuna/Producto/palma.jpg'},
+			{'papa': 'https://s3.amazonaws.com/makuna/Producto/papa.png'}
+		]
+
+		products.each do |_product|
+			_product.select do |key,value|				
+				product = Product.find_by(name: key)
+				product.update(image:value) if product.id
+			end
+		end
+	end
+
 end
