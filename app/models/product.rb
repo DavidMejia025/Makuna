@@ -33,5 +33,12 @@ class Product < ApplicationRecord
     "name"
   end
 
-
+  def history_by(department_name)
+    histories = ProductHistory.where(product_name: name, departament: department_name)
+    product_history = []
+    histories.each do |history|
+      product_history << [history.year, history.performance]
+    end
+    product_history
+  end
 end

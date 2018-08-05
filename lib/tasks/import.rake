@@ -1,7 +1,7 @@
 namespace :import do
 	require 'csv'
 	task :load_products =>:environment do
-		Dir.glob('lib/archivos/*.csv').each do |archivo|
+		Dir.glob('lib/archivos/productos/*.csv').each do |archivo|
 			name = archivo.split('/').last.split('.').first
 			product = Product.find_or_create_by(name: name)
     	CSV.foreach(archivo, headers:true) do |row|
@@ -56,8 +56,16 @@ namespace :import do
 
 		farmers.each do |farmer|
 			farmer = Farmer.find_or_create_by(farmer)
+			farmer.department_id = Department.all.sample.id
+			farmer.save
 			farmer.farmers_products.create(product_id: Product.all.sample.id)
 			farmer.farmers_products.create(product_id: Product.all.sample.id)
 		end
+	end
+
+	task :load_departments =>:environment do
+  	CSV.foreach('lib/archivos/departamentos.csv', headers:true) do |row|
+			Department.find_or_create_by(name: row['Nombre'])
+  	end
 	end
 end
