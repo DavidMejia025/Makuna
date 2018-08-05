@@ -1,4 +1,5 @@
 class FarmerDashboardController < FrontendsController
+  layout 'application'
   before_action :set_farmer
 
   def index

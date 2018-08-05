@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :departments do
+  post 'revert', :on => :member
+  get 'list_versions', :on => :member
+end
+
   resources :products do
     post 'revert', :on => :member
     get 'list_versions', :on => :member
