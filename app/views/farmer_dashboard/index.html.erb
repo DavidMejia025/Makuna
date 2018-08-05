@@ -1,21 +1,34 @@
-<h2><%= @farmer.name %></h2>
-<p><em><%= @farmer.department_name %></em></p>
-<h3>Products</h3>
-<div class="row">
-  <% @farmer.products.each do |product| %>
-    <div class="col-md-3">
-      <h2><%= product.name %></h2>
-      <p class="text-center">rendimiento por año</p>
-      <%= bar_chart product.history_by(@farmer.department.name) %>
-    </div>
-  <% end %>
-</div>
+<div class="container-fluid">
+  <!-- row productos a punto de caducar -->
+  <div class="row">
+    <div class="div col-10">
+      <h2><%= @farmer.name %></h2>
+      <p><em><%= @farmer.department_name %></em></p>
+      <h3>Products</h3>
+      <div class="row">
+        <% @farmer.products.each do |product| %>
+          <div class="col-md-3">
+            <h2><%= product.name %></h2>
+            <p class="text-center">rendimiento por año</p>
+            <%= bar_chart product.history_by(@farmer.department.name) %>
+          </div>
+        <% end %>
+      </div>
 
-<% if @farmer.matching_producers? %>
-  <h3>Possible matches with producers</h3>
-  <ul>
-    <% @farmer.matching_producers.each do |matching_producers| %>
-      <li><%= matching_producers.name %></li>
-    <% end %>
-  </ul>
-<% end %>
+      <% if @farmer.matching_producers? %>
+        <h3>Possible matches with producers</h3>
+        <div class="row">
+          <% @farmer.matching_producers.each do |matching_producers| %>
+            <div class="col-md-3">
+              <div class="card main-card" >
+                <div class="card-body">
+                  <h5 class="card-title"><%= matching_producers.name %></h5>
+                  <p class="card-text"><i class="fas fa-map-marker-alt image-text"></i><p class="title-text-card">Lugar:</p> Ciudad</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
