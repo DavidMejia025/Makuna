@@ -5,7 +5,10 @@ namespace :import do
 			name = archivo.split('/').last.split('.').first
 			product=Product.find_or_create_by(name: name)
     	CSV.foreach(archivo, headers:true) do |row|
-    		product.product_histories.create(departament: row["Departamento"], year: row["Año"], production: row["Producción ‎(‎Toneladas‎)‎"])   			
+    		history= product.product_histories.where(departament: row["Departamento"], year: row["Año"]).first
+    		unless history 
+    			product.product_histories.create(departament: row["Departamento"], year: row["Año"], production: row["Producción ‎(‎Toneladas‎)‎"]) 
+    		end  			
     	end
    	end    
 	end
