@@ -52,5 +52,8 @@ Rails.application.routes.draw do
     get 'list_versions', :on => :member
   end
 
-  root to: 'farmers#index'
+
+  resources :pages
+  # root to: 'farmers#index'
+  root to: 'pages#home'
 end
