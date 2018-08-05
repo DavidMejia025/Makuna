@@ -29,10 +29,6 @@ class Product < ApplicationRecord
     false
   end
 
-  def self.urgent
-    Product.joins(:farmers_products).where('farmers_products.urgent': 1).uniq
-  end
-
   def self.order_by_clause
     "name"
   end

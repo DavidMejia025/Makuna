@@ -4,9 +4,9 @@
     <div class="div col-10 red-products">
       <i class="fas fa-piggy-bank icon-title-red"></i><h3 class="red-title">URGENT</h3>
     </div>
-    <% @urgent_products.each do |product| %>
+    <% @urgent_wastes.each do |waste| %>
       <div class="div col-4">
-        <%= render "main-card", product: product %>
+        <%= render "main-card", waste: waste %>
       </div>
     <% end %>
   </div>
@@ -16,9 +16,9 @@
   <div class="div col-10 green-products">
     <i class="fas fa-piggy-bank icon-title-green"></i><h3 class="green-title">Otros productos</h3>
   </div>
-  <% @all_products.each do |product| %>
+  <% @all_wastes.each do |waste| %>
     <div class="div col-4">
-      <%= render "main-card", product: product %>
+      <%= render "main-card", waste: waste %>
     </div>
   <% end %>
 </div>

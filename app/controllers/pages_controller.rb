@@ -1,7 +1,7 @@
 class PagesController < FrontendsController
   layout 'application'
   def home
-    @urgent_products = Product.urgent
-    @all_products = Product.all
+    @urgent_wastes = FarmersProduct.urgent
+    @all_wastes = FarmersProduct.all
   end
 end
