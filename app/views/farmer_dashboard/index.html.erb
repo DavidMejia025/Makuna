@@ -3,13 +3,15 @@
 <h3>Farmer's products</h3>
 <ul>
   <% @farmer.products.each do |product| %>
-    <li><%= product.name %></li>
+    <li><%= product.name %>: producción: </li>
   <% end %>
 </ul>
 
-<h3>Possible matches with producers</h3>
-<ul>
-  <% @farmer.products.each do |product| %>
-    <li><%= product.name %></li>
-  <% end %>
-</ul>
+<% if @farmer.matching_producers? %>
+  <h3>Possible matches with producers</h3>
+  <ul>
+    <% @farmer.matching_producers.each do |matching_producers| %>
+      <li><%= matching_producers.name %></li>
+    <% end %>
+  </ul>
+<% end %>
