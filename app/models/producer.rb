@@ -15,7 +15,7 @@ class Producer < ApplicationRecord
   def inline_forms_attribute_list
     @inline_forms_attribute_list ||= [
       [ :name , "name", :text_field ],
-#     [ :lat , "lat", :unknown ],
+      [ :lat , "lat", :text_field ],
       [ :long , "long", :text_field ],
     ]
   end
