@@ -1,10 +1,11 @@
 <div class="card main-card" >
-  <%= image_tag 'coffee.svg', class: 'image-card' %>
+
+  <img src = "<%= waste.product.image%>"></img>
   <div class="card-body">
     <h5 class="card-title"><%= waste.product.name %></h5>
     <p class="card-text"><%= image_tag 'farmer.svg', class: 'image-text' %><p class="title-text-card">Farmer:</p> <%= waste.farmer.name %></p>
     <p class="card-text"><i class="fas fa-map-marker-alt image-text"></i><p class="title-text-card">Lugar:</p> <%= waste.farmer.department.name %></p>
-    <p class="card-text"><i class="fas fa-balance-scale image-text"></i><p class="title-text-card">Toneladas:</p> 00000 (ton)</p>
+    <!--<p class="card-text"><i class="fas fa-balance-scale image-text"></i><p class="title-text-card">Toneladas:</p> 00000 (ton)</p> -->
     <div class="btn-cont">
       <a href="#" class="btn btn-primary btn-purple">Comprar</a>
     </div>
