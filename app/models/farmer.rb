@@ -5,6 +5,7 @@ class Farmer < ApplicationRecord
   has_paper_trail
   has_many :farmers_products
   has_many :products, through: :farmers_products
+  belongs_to :department, optional: true
 
   def _presentation
     "<strong>#{name}</strong> <br>products: #{products.map(&:name).join(', ')}".html_safe
@@ -19,6 +20,10 @@ class Farmer < ApplicationRecord
     ]
   end
 
+  def department_name
+    return 'Unknown' unless department
+    department.name
+  end
 
   def self.not_accessible_through_html?
     false

@@ -33,6 +33,8 @@ gem 'turbolinks', '~> 5'
 gem 'autoprefixer-rails', '~> 8.3'
 gem 'bootstrap-datepicker-rails'
 gem 'httparty'
+gem "chartkick"
+
 group :development do
   gem 'bundler'
   gem 'listen'

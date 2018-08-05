@@ -104,6 +104,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (2.3.5)
     climate_control (0.2.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -324,6 +325,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.3)
   capistrano3-unicorn
   carrierwave
+  chartkick
   ckeditor!
   coffee-rails
   devise
