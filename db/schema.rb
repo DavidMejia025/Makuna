@@ -9,7 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 20180804222257) do
+ActiveRecord::Schema.define(version: 20180805001831) do
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -83,6 +83,14 @@ ActiveRecord::Schema.define(version: 20180804222257) do
     t.bigint "product_id", null: false
     t.index ["producer_id", "product_id"], name: "index_producers_products_on_producer_id_and_product_id"
     t.index ["product_id", "producer_id"], name: "index_producers_products_on_product_id_and_producer_id"
+  end
+
+  create_table "product_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "product_id"
+    t.string "departament"
+    t.integer "year"
+    t.float "production", limit: 24
+    t.index ["product_id"], name: "index_product_histories_on_product_id"
   end
 
   create_table "products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

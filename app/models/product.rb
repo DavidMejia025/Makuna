@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  has_many :product_histories
+
   attr_reader :per_page
   @per_page = 7
   attr_writer :inline_forms_attribute_list
