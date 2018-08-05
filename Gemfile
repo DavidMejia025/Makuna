@@ -32,6 +32,7 @@ gem 'will_paginate'
 gem 'turbolinks', '~> 5'
 gem 'autoprefixer-rails', '~> 8.3'
 gem 'bootstrap-datepicker-rails'
+gem 'httparty'
 group :development do
   gem 'bundler'
   gem 'listen'

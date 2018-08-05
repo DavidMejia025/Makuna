@@ -128,6 +128,8 @@ GEM
       thor (~> 0.14)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jquery-rails (4.3.3)
@@ -162,6 +164,7 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    multi_xml (0.6.0)
     mysql2 (0.5.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -325,6 +328,7 @@ DEPENDENCIES
   coffee-rails
   devise
   figaro
+  httparty
   i18n-active_record!
   inline_forms!
   jquery-rails
