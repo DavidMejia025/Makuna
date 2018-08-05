@@ -22,5 +22,7 @@ class ProductProductionService < BaseService
       :headers => {'Content-Type'=>'application/json'},
       :body => params_hash.to_json,
     )
+
+    JSON.parse(@result.body).values.flatten.last
   end
 end

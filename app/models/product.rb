@@ -37,8 +37,18 @@ class Product < ApplicationRecord
     histories = ProductHistory.where(product_name: name, departament: department_name)
     product_history = []
     histories.each do |history|
-      product_history << [history.year, history.performance]
+      product_history << [history.year, history.production]
     end
     product_history
+  end
+
+  def watson_performance_by(department_name, year)
+    service = ProductPerformanceService.new(name, department_name, year)
+    service.performance
+  end
+
+  def watson_production_by(department_name, year)
+    service = ProductProductionService.new(name, department_name, year)
+    service.production.round(2)
   end
 end

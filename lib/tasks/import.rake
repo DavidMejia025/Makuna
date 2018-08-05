@@ -13,22 +13,6 @@ namespace :import do
    	end
 	end
 
-	task :load_producers =>:environment do
-		producers = [
-			{name: 'Biotecnología NV'},
-			{name: 'Mannap NV'},
-			{name: 'Cementos CA'},
-			{name: 'Mappi NV'},
-			{name: 'Addition NV'}
-		]
-
-		producers.each do |producer|
-			producer = Producer.find_or_create_by(producer)
-			producer.producers_products.create(product_id: Product.all.sample.id)
-			producer.producers_products.create(product_id: Product.all.sample.id)
-		end
-	end
-
 	task :load_producers => :environment do
 		producers = [
 			{name: 'Biotecnología NV'},
@@ -81,7 +65,7 @@ namespace :import do
 		]
 
 		products.each do |_product|
-			_product.select do |key,value|				
+			_product.select do |key,value|
 				product = Product.find_by(name: key)
 				product.update(image:value) if product.id
 			end
