@@ -1,5 +1,4 @@
-class FarmerDashboardController < ApplicationController
-  skip_authorization_check
+class FarmerDashboardController < FrontendsController
   before_action :set_farmer
 
   def index

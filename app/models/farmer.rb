@@ -30,6 +30,10 @@ class Farmer < ApplicationRecord
 
   def matching_producers
     farmer_product_ids = products.map(&:id)
-    Producer.joins(:producers_products).where('producers_products.product_id': farmer)
+    Producer.joins(:producers_products).where('producers_products.product_id': farmer_product_ids)
+  end
+
+  def matching_producers?
+    matching_producers.first
   end
 end
