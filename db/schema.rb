@@ -9,9 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 20180805001831) do
-
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
@@ -30,6 +28,13 @@ ActiveRecord::Schema.define(version: 20180805001831) do
     t.float "long", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "farmers_products", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "farmer_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["farmer_id", "product_id"], name: "index_farmers_products_on_farmer_id_and_product_id"
+    t.index ["product_id", "farmer_id"], name: "index_farmers_products_on_product_id_and_farmer_id"
   end
 
   create_table "inline_forms_keys", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -70,6 +75,14 @@ ActiveRecord::Schema.define(version: 20180805001831) do
     t.float "long", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "lat", limit: 24
+  end
+
+  create_table "producers_products", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "producer_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["producer_id", "product_id"], name: "index_producers_products_on_producer_id_and_product_id"
+    t.index ["product_id", "producer_id"], name: "index_producers_products_on_product_id_and_producer_id"
   end
 
   create_table "product_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
