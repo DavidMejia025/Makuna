@@ -5,33 +5,25 @@
   </div>
   <!-- row productos a punto de caducar -->
   <div class="row">
-    <div class="col-10 red-products">
-      <i class="fas fa-piggy-bank icon-title-red"></i><h3 class="red-title">Los mejores precios</h3>
+    <div class="div col-10 red-products">
+      <i class="fas fa-piggy-bank icon-title-red"></i><h3 class="red-title">URGENT</h3>
     </div>
-    <div class="div col-4">
-      <%= render partial: "main-card" %>
-    </div>
+    <% @urgent_products.each do |product| %>
+      <div class="div col-4">
+        <%= render "main-card", product: product %>
+      </div>
+    <% end %>
   </div>
-
-  <!-- row productos a tiempo medio-->
-  <div class="row">
-    <div class="div col-10 yellow-products">
-      <i class="fas fa-piggy-bank icon-title-yellow"></i><h3 class="yellow-title">Buenos precios</h3>
-    </div>
-    <div class="div col-4">
-      <%= render partial: "main-card" %>
-    </div>
-  </div>
-</div>
-
 
 <!-- row productos a uen tiempo-->
 <div class="row">
   <div class="div col-10 green-products">
     <i class="fas fa-piggy-bank icon-title-green"></i><h3 class="green-title">Otros productos</h3>
   </div>
-  <div class="div col-4">
-    <%= render partial: "main-card" %>
-  </div>
+  <% @all_products.each do |product| %>
+    <div class="div col-4">
+      <%= render "main-card", product: product %>
+    </div>
+  <% end %>
 </div>
 </div>

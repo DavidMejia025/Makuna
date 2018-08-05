@@ -58,8 +58,8 @@ namespace :import do
 			farmer = Farmer.find_or_create_by(farmer)
 			farmer.department_id = Department.all.sample.id
 			farmer.save
-			farmer.farmers_products.create(product_id: Product.all.sample.id)
-			farmer.farmers_products.create(product_id: Product.all.sample.id)
+			farmer.farmers_products.create(product_id: Product.all.sample.id, urgent: [0,1].sample)
+			farmer.farmers_products.create(product_id: Product.all.sample.id, urgent: [0,1].sample)
 		end
 	end
 
