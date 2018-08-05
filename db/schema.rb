@@ -79,6 +79,13 @@ ActiveRecord::Schema.define(version: 20180804204437) do
     t.float "lat", limit: 24
   end
 
+  create_table "producers_products", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "producer_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["producer_id", "product_id"], name: "index_producers_products_on_producer_id_and_product_id"
+    t.index ["product_id", "producer_id"], name: "index_producers_products_on_product_id_and_producer_id"
+  end
+
   create_table "products", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "type"

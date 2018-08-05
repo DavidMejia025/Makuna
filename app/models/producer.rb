@@ -4,6 +4,9 @@ class Producer < ApplicationRecord
   attr_writer :inline_forms_attribute_list
   has_paper_trail
 
+  has_many :producers_products
+  has_many :products, through: :producers_products
+
   def _presentation
     "#{name}"
   end
