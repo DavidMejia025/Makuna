@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   has_many :farmers_products
   has_many :farmers, through: :farmers_products
 
+  has_many :producers_products
+  has_many :producers, through: :producers_products
+
   def _presentation
     "#{name}"
   end
