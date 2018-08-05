@@ -12,7 +12,9 @@ class Product < ApplicationRecord
   has_many :producers, through: :producers_products
 
   def _presentation
-    "#{name}"
+    "<strong>#{name}</strong>
+    <br>provided by: #{farmers.map(&:name).join(', ')}
+    <br>needed by: #{producers.map(&:name).join(', ')}".html_safe
   end
 
 

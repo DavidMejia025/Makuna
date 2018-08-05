@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :farmers do
+    resources :dashboard, only: %i[index], controller: 'farmer_dashboard'
     post 'revert', :on => :member
     get 'list_versions', :on => :member
   end

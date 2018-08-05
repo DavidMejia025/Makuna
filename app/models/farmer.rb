@@ -7,7 +7,7 @@ class Farmer < ApplicationRecord
   has_many :products, through: :farmers_products
 
   def _presentation
-    "#{name}"
+    "<strong>#{name}</strong> <br>products: #{products.map(&:name).join(', ')}".html_safe
   end
 
 
@@ -28,5 +28,8 @@ class Farmer < ApplicationRecord
     "name"
   end
 
-
+  def matching_producers
+    farmer_product_ids = products.map(&:id)
+    Producer.joins(:producers_products).where('producers_products.product_id': farmer)
+  end
 end

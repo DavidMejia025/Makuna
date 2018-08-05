@@ -1,8 +1,5 @@
-class ApplicationController < InlineFormsApplicationController
+class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  # Comment next line if you don't want Devise authentication
-  before_action :authenticate_user!
 
   # Comment next 6 lines if you do not want CanCan authorization
   check_authorization unless: :devise_controller?

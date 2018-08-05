@@ -1,0 +1,15 @@
+<h2><%= @farmer.name %></h2>
+
+<h3>Farmer's products</h3>
+<ul>
+  <% @farmer.products.each do |product| %>
+    <li><%= product.name %></li>
+  <% end %>
+</ul>
+
+<h3>Possible matches with producers</h3>
+<ul>
+  <% @farmer.products.each do |product| %>
+    <li><%= product.name %></li>
+  <% end %>
+</ul>
