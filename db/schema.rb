@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805001831) do
+ActiveRecord::Schema.define(version: 20180805080122) do
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 20180805001831) do
     t.string "departament"
     t.integer "year"
     t.float "production", limit: 24
+    t.float "performance", limit: 24
+    t.string "product_name"
     t.index ["product_id"], name: "index_product_histories_on_product_id"
   end
 
